@@ -43,6 +43,20 @@ def find_moves(checkers, dice1, dice2):
                 newCheckers[position2]=1
             newCheckers[key2]-=1
             
+            #calculating final score
+            score=0
+            for i in newCheckers.keys():
+                if newCheckers[i]==1:
+                    score-=1
+                if newCheckers[i]==2 and i not in filled:
+                    if i in important_doors:
+                        score+=2
+                    else:
+                        score+=1
+            final_score = score-cur_score
+
+    
+            
             
 checkers = {1: 3, 6: 1, 10: 2, 12: 1, 13: 1}   
 print(find_moves(checkers,dice1,dice2))
