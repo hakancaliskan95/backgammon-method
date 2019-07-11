@@ -8,4 +8,19 @@ def find_moves(checkers, dice1, dice2):
     filled = []
     result = []
 
+    #calculating current score
+    cur_score=0
+    for i in checkers.keys():
+        if checkers[i]==1:
+            cur_score-=1
+        if checkers[i]==2:
+            if i in important_doors:
+                cur_score+=2
+            else:
+                cur_score+=1
+        if checkers[i]>2:
+            filled.append(i)
+            
+            
+checkers = {1: 3, 6: 1, 10: 2, 12: 1, 13: 1}   
 print(find_moves(checkers,dice1,dice2))
