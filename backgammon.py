@@ -55,8 +55,10 @@ def find_moves(checkers, dice1, dice2):
                         score+=1
             final_score = score-cur_score
 
-    
+            if final_score>0:
+                result.append(((key1,position1),(key2,position2),final_score))
+    return result
             
             
 checkers = {1: 3, 6: 1, 10: 2, 12: 1, 13: 1}   
-print(find_moves(checkers,dice1,dice2))
+print(find_moves(checkers,2,1))
